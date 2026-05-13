@@ -4,7 +4,7 @@ This repository contains a Reveal.js presentation intended to be hosted on GitHu
 
 ## Local preview
 
-Open `/home/runner/work/swxsoc-presentation/swxsoc-presentation/index.html` in a browser.
+Open `index.html` from the repository root in a browser.
 
 ## GitHub Pages hosting
 
