@@ -97,19 +97,6 @@
         display: block;
       }
 
-      .pipeline-slide .side-by-side {
-        align-items: center;
-      }
-
-      .pipeline-slide .side-by-side > div {
-        flex: 0 1 28%;
-      }
-
-      .pipeline-slide .side-by-side > figure {
-        flex: 1 1 72%;
-        max-width: none;
-      }
-
       .image-bottom {
         display: flex;
         flex-direction: column;
@@ -152,42 +139,40 @@
       <div class="slides">
 
         <section>
-          <h1>Enhancing SWxSOC through Open Collaboration</h1>
-          <p>For Multi-Mission Data Processing and Expedited Release</p>
+          <h1>The NASA Space Weather Science Operations Center (SWxSOC)</h1>
+          <p>An open-source, multi-mission Science Operations Center supporting space weather missions.</p>
           <div class="image-row">
-            <img src="img/swxsoc_logo.png" alt="" />
             <img src="img/goddard_logo.png" alt="" />
-            <img src="img/impax_logo.png" alt="" />
-            <img src="img/hermes_logo.png" alt="" />
-            <img src="img/padre_logo.png" alt="" />
+            <img src="img/swxsoc_logo.png" alt="" />
           </div>
         </section>
 
         <section class="summary-slide">
           <h2>Summary</h2>
-          <p>
-            NASA's Space Weather Science Operations Center (SWxSOC) is an effort to develop a multi-mission Science Operations Center for the community, specifically for space weather missions, which requires data products to be released consistently and quickly. Currently supporting the Heliophysics Environmental and Radiation Measurement Experiment Suite (HERMES) on the Lunar Gateway and the PADRE Small Sat mission (launched June 2025), SWxSOC demonstrates its multi-mission capability in action. Through collaborative efforts with instrument teams, we've continually improved the pipeline based on feedback and requirements, making it more robust. These improvements include handling file dependencies for higher data levels and creating an easy reprocessing functionality. SWxSOC has established an open-source, reusable solution for transitioning data management from on-premises to the cloud, processing data files, and setting up a cloud-based analysis environment to monitor instrument anomalies. Leveraging Amazon Web Services (AWS) and making open-source tools available on GitHub, SWxSOC illustrates NASA's commitment to open-source standardization and collaboration and showcases the real-world effectiveness of cloud technology in data processing, analysis, and observability. This enhances current operations and ensures faster, standardized deployments for future missions.
+          <p>            
+            The NASA Space Weather Science Operations Center (SWxSOC) is a project to deliver and operate a multi-mission Science Operations Center for the community, 
+            specifically for space weather missions, which requires data products to be released consistently and quickly. SWxSOC has established an open-source, reusable solution for 
+            transitioning data management from on-premises to the cloud, processing data files, and setting up a cloud-based analysis environment. 
+            Leveraging Amazon Web Services (AWS) and making open-source tools available on GitHub, SWxSOC illustrates 
+            NASA's commitment to open-source standardization and collaboration and showcases the real-world effectiveness of cloud technology in 
+            data processing, analysis, and observability. This enhances current operations and ensures faster, standardized deployments for future missions.
           </p>
         </section>
 
         <section>
-          <div class="side-by-side">
-            <div>
-              <h2>Who We Are at SWxSOC</h2>
-              <p>Development of an <strong>Open Source</strong> multi-mission Science Operations Center supporting
-              space weather missions in alignment with NASA's Open Science initiative (OSSI).</p>
-              <h3>Services we provide:</h3>
-              <ul>
-                <li>Analysis — Cloud-based data analysis environment</li>
-                <li>Alerting — Instrument anomaly alerts and performance tracking</li>
-                <li>Science Alertings — Notifications of space weather events</li>
-                <li>Data Backup — Primary and low-cost backup data center</li>
-                <li>Data Processing — Pipeline for science file calibration</li>
-                <li>Monitoring — Graphical interfaces for pipeline and telemetry</li>
-                <li>Telemetry Forwarding — Capture and distribute to downstream systems</li>
-              </ul>
-            </div>
-          </div>
+          <h2>Who We Are at SWxSOC</h2>
+          <p>Development of an <strong>Open Source</strong> multi-mission Science Operations Center supporting
+          space weather missions in alignment with NASA's Open Science initiative (OSSI).</p>
+          <h3>Services we provide:</h3>
+          <ul>
+            <li>Analysis — Cloud-based data analysis environment</li>
+            <li>Alerting — Instrument anomaly alerts and performance tracking</li>
+            <li>Space Weather Alerts — Notifications of space weather events</li>
+            <li>Data Backup — Primary and low-cost backup data center</li>
+            <li>Data Processing — Pipeline for science file calibration</li>
+            <li>Monitoring — Graphical interfaces for pipeline and telemetry</li>
+            <li>Telemetry Forwarding — Capture and distribute to downstream systems</li>
+          </ul>
         </section>
 
         <section>
@@ -208,6 +193,11 @@
                 <strong>IMPAX</strong> - Imaging Microburst Precipitation with Atmospheric X-ray emissions (IMPAX) (H-FORT) to launch in 2027.
             </li>
           </ul>
+          <div class="image-row">
+            <img src="img/impax_logo.png" alt="" />
+            <img src="img/hermes_logo.png" alt="" />
+            <img src="img/padre_logo.png" alt="" />
+          </div>
         </section>
 
         <section>
@@ -233,7 +223,7 @@
             <div>
               <h2>Managing Data Across On-Premises and Cloud</h2>
               <ul>
-                <li>Can support receipt of data from any source including on-premises and cloud-based systems.</li>
+                <li>Can support receipt of data from any source, including on-premises and cloud-based systems.</li>
                 <li>All data is mirrored between on-premises and cloud environments.</li>
                 <li>Cloud environments act as high-availability backups for on-prem data.</li>
                 <li>On-prem servers are linked to NASA archives for long-term storage.</li>
@@ -260,7 +250,7 @@
               </ul>
               <h3>Artifact Lambda Function</h3>
               <ul>
-                <li>Tracks pipeline progress using <strong>MetaTracker</strong> database.</li>
+                <li>Tracks pipeline progress using the <strong>MetaTracker</strong> database.</li>
                 <li>Manages Slack notifications for efficient communication.</li>
               </ul>
             </div>
@@ -322,7 +312,7 @@
               <ol>
                 <li><strong>Request Submission</strong> — submit a pull request using the provided schema to the main git repository, maintaining a full version history.</li>
                 <li><strong>Validation and Archiving</strong> — each request is validated and organized into the appropriate archive.</li>
-                <li><strong>Processing and Monitoring</strong> — valid requests from organization members are allowed to merge. Requestors monitor status through CI/CD or Grafana.</li>
+                <li><strong>Processing and Monitoring</strong> — valid requests from organization members are allowed to merge. Requesters monitor status through CI/CD or Grafana.</li>
               </ol>
             </div>
             <figure>
@@ -349,19 +339,18 @@
           </ul>
         </section>
         <section>
-          <div class="side-by-side">
           <h2>Space Weather Science Alerts</h2>
           <ul>
             <li>
                 In collaboration with the NASA Goddard Astrophysics Global Coordinate Network (GCN), SWxSOC can generate, subscribe to, and receive space weather science alerts.
-            </li>
-            <ul>
-            <li>The Astrophysics Gamma-ray Coordinates Network (GCN), enabled seminal breakthroughs in astrophysics by coordinating worldwide follow-up observations that revealed the nature of gamma-ray bursts.</li>
+              <ul>
+                <li>The Astrophysics Gamma-ray Coordinates Network (GCN) enabled seminal breakthroughs in astrophysics by coordinating worldwide follow-up observations that revealed the nature of gamma-ray bursts.</li>
                 <li>Provides infrastructure to send streaming, real-time, machine-readable, and standardized alert messages</li>
                 <li>Publisher-subscriber model, users choose which “topics” to subscribe to (e.g. gamma-ray bursts, gravity-waves)</li>
-             </ul>
+              </ul>
+            </li>
              <li>
-                Missions can generate alerts based on their data, and subscribe to alerts from other missions or external sources, enabling timely notifications of space weather events.
+                Leveraging this existing capability, heliophysics missions can generate science or space weather alerts based on their data, and subscribe to alerts from other missions or external sources, enabling timely notifications of space weather events.
             </li>
           </ul>
         </section>
