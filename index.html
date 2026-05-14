@@ -5,49 +5,381 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SWxSOC Presentation</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/theme/black.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/white.min.css" crossorigin="anonymous" />
+
+    <style>
+      .reveal,
+      .reveal h1,
+      .reveal h2,
+      .reveal h3,
+      .reveal p,
+      .reveal section {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-align: left;
+      }
+
+      .reveal h1 {
+        text-transform: none;
+        border-bottom: 3pt solid #0b3d91;
+        font-size: 1.8em;
+      }
+
+      .reveal h2 {
+        text-transform: none;
+        color: #0b3d91;
+        font-size: 1.3em;
+      }
+
+      .reveal h3 {
+        text-transform: none;
+        font-size: 1.05em;
+      }
+
+      .reveal ul,
+      .reveal ol {
+        display: block;
+        text-align: left;
+        margin: 0.25em 0 0.55em 0;
+        padding-left: 1.2em;
+      }
+
+      .reveal li {
+        font-size: 0.8em;
+        line-height: 1.28;
+        margin-bottom: 0.35em;
+      }
+
+      .reveal p {
+        margin: 0.2em 0 0.6em 0;
+        font-size: 0.82em;
+        line-height: 1.3;
+      }
+
+      .reveal h2 {
+        margin: 0 0 0.25em 0;
+      }
+
+      .reveal h3 {
+        margin: 0.25em 0 0.2em 0;
+      }
+
+      .dense-slide p,
+      .dense-slide li {
+        font-size: 0.91em;
+        line-height: 1.22;
+      }
+
+      .summary-slide p {
+        font-size: 0.86em;
+        line-height: 1.2;
+      }
+
+      .side-by-side {
+        display: flex;
+        gap: 40px;
+        align-items: flex-start;
+      }
+
+      .side-by-side > div {
+        flex: 1;
+      }
+
+      .side-by-side > figure {
+        flex: 0 0 auto;
+        max-width: 46%;
+        margin: 0;
+      }
+
+      .side-by-side figure img {
+        width: 100%;
+        display: block;
+      }
+
+      .image-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+
+      .image-bottom > div {
+        width: 100%;
+      }
+
+      .image-bottom > figure {
+        width: 100%;
+        max-width: 900px;
+        margin: 0;
+      }
+
+      .image-bottom > figure img {
+        width: 100%;
+        display: block;
+      }
+
+      .image-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        align-items: center;
+      }
+
+      .image-row img {
+        height: 130px;
+        width: auto;
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
+
         <section>
-          <h1>SWxSOC Presentation</h1>
-          <p>Hosted with GitHub Pages + Reveal.js</p>
+          <h1>The NASA Space Weather Science Operations Center (SWxSOC)</h1>
+          <p>An open-source, multi-mission Science Operations Center supporting space weather missions.</p>
+          <div class="image-row">
+            <img src="img/goddard_logo.png" alt="" />
+            <img src="img/swxsoc_logo.png" alt="" />
+          </div>
+        </section>
+
+        <section class="summary-slide">
+          <h2>Summary</h2>
+          <p>            
+            The NASA Space Weather Science Operations Center (SWxSOC) is a project to deliver and operate a multi-mission Science Operations Center for the community, 
+            specifically for space weather missions, which requires data products to be released consistently and quickly. SWxSOC has established an open-source, reusable solution for 
+            transitioning data management from on-premises to the cloud, processing data files, and setting up a cloud-based analysis environment. 
+            Leveraging Amazon Web Services (AWS) and making open-source tools available on GitHub, SWxSOC illustrates 
+            NASA's commitment to open-source standardization and collaboration and showcases the real-world effectiveness of cloud technology in 
+            data processing, analysis, and observability. This enhances current operations and ensures faster, standardized deployments for future missions.
+          </p>
         </section>
 
         <section>
-          <h2>Agenda</h2>
+          <h2>Who We Are at SWxSOC</h2>
+          <p>Development of an <strong>Open Source</strong> multi-mission Science Operations Center supporting
+          space weather missions in alignment with NASA's Open Science initiative (OSSI).</p>
+          <h3>Services we provide:</h3>
           <ul>
-            <li>What this project is</li>
-            <li>How to present locally</li>
-            <li>How to publish on github.io</li>
+            <li>Analysis — Cloud-based data analysis environment</li>
+            <li>Alerting — Instrument anomaly alerts and performance tracking</li>
+            <li>Space Weather Alerts — Notifications of space weather events</li>
+            <li>Data Backup — Primary and low-cost backup data center</li>
+            <li>Data Processing — Pipeline for science file calibration</li>
+            <li>Monitoring — Graphical interfaces for pipeline and telemetry</li>
+            <li>Telemetry Forwarding — Capture and distribute to downstream systems</li>
           </ul>
         </section>
 
         <section>
-          <h2>Run Locally</h2>
-          <ol>
-            <li>Open <code>index.html</code> in your browser</li>
-            <li>Use arrow keys to navigate slides</li>
-          </ol>
+          <h2>Supported Missions</h2>
+          <ul>
+            <li>
+              <strong>HERMES</strong> — Heliophysics Environmental and Radiation Measurement Experiment Suite,
+              4 in-situ instruments on the Lunar Gateway.
+            </li>
+            <li>
+              <strong>PADRE</strong> — solar PolArization and Directivity X-ray Experiment,
+              two solar-observing x-ray instruments (launched June 2025).
+            </li>
+            <li>
+              <strong>REACH</strong> - Responsive Environmental Assessment Commercially Hosted (REACH), constellation of 32 dosimeter payloads hosted on a commercial LEO satellite constellation.
+            </li>
+            <li>
+                <strong>IMPAX</strong> - Imaging Microburst Precipitation with Atmospheric X-ray emissions (IMPAX) (H-FORT) to launch in 2027.
+            </li>
+          </ul>
+          <div class="image-row">
+            <img src="img/impax_logo.png" alt="" />
+            <img src="img/hermes_logo.png" alt="" />
+            <img src="img/padre_logo.png" alt="" />
+          </div>
         </section>
 
         <section>
-          <h2>Publish to GitHub Pages</h2>
-          <ol>
-            <li>Push to the default branch</li>
-            <li>Enable <strong>Settings → Pages</strong></li>
-            <li>Deploy from branch root</li>
-          </ol>
+          <div class="side-by-side">
+            <div>
+              <h2>A High-Level Overview of Our Evolving Open Source Data Processing Pipeline</h2>
+              <ul>
+                <li>Multi-mission cloud-based architecture enables easy scaling.</li>
+                <li>Infrastructure as Code — all cloud-resource configurations available on GitHub.</li>
+                <li>Hybrid Cloud — Supports both on-premises and cloud environments for flexibility and redundancy.</li>
+                <li>Event-Driven Architecture — Utilizes AWS EventBridge and Lambda functions for efficient task execution.</li>
+                <li>Modern design — Emphasizes scalability, maintainability, and ease of integration.</li>
+              </ul>
+            </div>
+            <figure>
+              <img src="img/pipeline_overview.jpg" alt="Pipeline architecture diagram" />
+            </figure>
+          </div>
         </section>
+
+        <section>
+          <div class="image-bottom">
+            <div>
+              <h2>Managing Data Across On-Premises and Cloud</h2>
+              <ul>
+                <li>Can support receipt of data from any source, including on-premises and cloud-based systems.</li>
+                <li>All data is mirrored between on-premises and cloud environments.</li>
+                <li>Cloud environments act as high-availability backups for on-prem data.</li>
+                <li>On-prem servers are linked to NASA archives for long-term storage.</li>
+              </ul>
+            </div>
+            <figure>
+              <img src="img/cloud_to_prem.jpg" alt="Cloud data flow diagram" />
+            </figure>
+          </div>
+        </section>
+
+        <section class="dense-slide">
+          <div class="side-by-side">
+            <div>
+              <h2>Utilizing the Cloud for Data Processing and Analysis</h2>
+              <h3>Sorting Lambda Function</h3>
+              <ul>
+                <li>Triggers on file events and moves files to relevant instrument buckets for processing.</li>
+              </ul>
+              <h3>Processing Lambda Function</h3>
+              <ul>
+                <li>Triggers on file events and processes files by using mission's instrument packages to calibrate data to higher levels.</li>
+                <li>Pushes summary data products to databases for visualization.</li>
+              </ul>
+              <h3>Artifact Lambda Function</h3>
+              <ul>
+                <li>Tracks pipeline progress using the <strong>MetaTracker</strong> database.</li>
+                <li>Manages Slack notifications for efficient communication.</li>
+              </ul>
+            </div>
+            <figure>
+              <img src="img/monitoring_grafana.jpg" alt="Lambda processing diagram" />
+            </figure>
+          </div>
+        </section>
+
+        <section>
+          <h2>Running Auxiliary Tasks via the Executor Lambda Function</h2>
+          <ul>
+            <li>Runs auxiliary but regular tasks outside of the main processing pipeline.</li>
+            <li>Uses AWS EventBridge to schedule individual tasks.</li>
+          </ul>
+          <h3>Current SWxSOC Executor Activities:</h3>
+          <ul>
+            <li>Fetching ancillary data products (e.g. GOES XRS from NOAA APIs)</li>
+            <li>Creating Grafana annotations</li>
+            <li>Generating code count across organizations</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="side-by-side">
+            <div>
+              <h2>Monitoring with Grafana: Mission Insights and Pipeline Overview</h2>
+              <p>
+               Grafana, an open-source tool, enables the integration of multiple data sources to create insightful dashboards. Each mission is provided with its own dedicated Grafana server, allowing team members to log in with their GitHub account if they belong to the mission’s GitHub Organization.
+              </p>
+              <h3>Dashboards:</h3>
+              <ul>
+                <li><strong>Housekeeping Dashboard</strong> — at-a-glance view of housekeeping data from science products.</li>
+                <li><strong>MetaTracker Dashboard</strong> — metadata for all science products in the pipeline.</li>
+                <li><strong>Processing Pipeline Dashboard</strong> — Lambda function logs and pipeline activity.</li>
+              </ul>
+            </div>
+            <figure>
+              <img src="img/grafana_example.png" alt="Grafana dashboard screenshot" />
+            </figure>
+          </div>
+        </section>
+
+        <section>
+          <h2>Codebase Management and CI/CD Workflows</h2>
+          <ul>
+            <li><strong>Organized Repositories</strong> — codebase split across multiple GitHub repos including Python packages for AWS Lambda functions.</li>
+            <li><strong>Automated Rebuilds and Deployments</strong> — changes trigger automatic rebuilds via AWS CodeBuild CI/CD pipeline.</li>
+            <li><strong>GitHub Actions Integration</strong> — linting, testing, and documentation updates on pull requests.</li>
+            <li><strong>End-to-End Workflow Testing in Lambda Containers</strong> — changes tested directly within the Lambda container before deployment.</li>
+          </ul>
+        </section>
+
+        <section>
+          <div class="side-by-side">
+            <div>
+              <h2>Enhancing Our Pipeline: Re-processing Capabilities</h2>
+              <p>A streamlined process for reprocessing data sets at different data levels.</p>
+              <ol>
+                <li><strong>Request Submission</strong> — submit a pull request using the provided schema to the main git repository, maintaining a full version history.</li>
+                <li><strong>Validation and Archiving</strong> — each request is validated and organized into the appropriate archive.</li>
+                <li><strong>Processing and Monitoring</strong> — valid requests from organization members are allowed to merge. Requesters monitor status through CI/CD or Grafana.</li>
+              </ol>
+            </div>
+            <figure>
+              <img src="img/reprocessing.png" alt="Reprocessing workflow diagram" />
+            </figure>
+          </div>
+        </section>
+
+        <section class="dense-slide">
+          <h2>Additional Tools and Packages We Provide</h2>
+          <ul>
+            <li>
+              <strong>Mission Core &amp; Instrument Packages</strong> — structured framework for the primary processing pipeline, adaptable for other pipelines.
+            </li>
+            <li>
+              <strong>SWXIOHandler</strong> — Python library for data handling, metadata validation, and mission-specific metadata enforcement.
+            </li>
+            <li>
+              <strong>MetaTracker</strong> — Python package for monitoring raw binary and CDF files within a relational database.
+            </li>
+            <li>
+              <strong>FSWatcher &amp; S3Watcher</strong> — containerized tools that monitor directories to upload to S3, and monitor S3 buckets to download new files on-prem in an event-driven fashion.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Space Weather Science Alerts</h2>
+          <ul>
+            <li>
+                In collaboration with the NASA Goddard Astrophysics Global Coordinate Network (GCN), SWxSOC can generate, subscribe to, and receive space weather science alerts.
+              <ul>
+                <li>The Astrophysics Gamma-ray Coordinates Network (GCN) enabled seminal breakthroughs in astrophysics by coordinating worldwide follow-up observations that revealed the nature of gamma-ray bursts.</li>
+                <li>Provides infrastructure to send streaming, real-time, machine-readable, and standardized alert messages</li>
+                <li>Publisher-subscriber model, users choose which “topics” to subscribe to (e.g. gamma-ray bursts, gravity-waves)</li>
+              </ul>
+            </li>
+             <li>
+                Leveraging this existing capability, heliophysics missions can generate science or space weather alerts based on their data, and subscribe to alerts from other missions or external sources, enabling timely notifications of space weather events.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Any Questions?</h1>
+          <p>Feel free to contact us for more information!</p>
+          <p><strong>Email:</strong> <a href="mailto:steven.christe@nasa.gov">steven.christe@nasa.gov</a></p>
+          <div class="image-row">
+            <img src="img/swxsoc_logo.png" alt="" />
+            <img src="img/goddard_logo.png" alt="" />
+            <img src="img/slide_13_img_6.png" alt="" />
+          </div>
+        </section>
+
       </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js" crossorigin="anonymous"></script>
     <script>
       Reveal.initialize({
         hash: true,
+        width: 1600,
+        height: 900,
+        margin: 0.04,
+        controls: true,
+        progress: true,
+        transition: 'slide',
+        slideNumber: 'c/t',
       });
     </script>
   </body>
