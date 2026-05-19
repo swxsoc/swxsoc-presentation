@@ -1,6 +1,9 @@
 name: Release PDF
 
 on:
+  pull_request:
+    branches:
+      - main
   release:
     types: [published]
 
@@ -44,7 +47,11 @@ jobs:
           await browser.close()
           EOF
 
+      - name: Test generated PDF
+        run: test -s swxsoc-presentation.pdf
+
       - name: Upload PDF to release assets
+        if: ${{ github.event_name == 'release' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh release upload "${{ github.event.release.tag_name }}" swxsoc-presentation.pdf --clobber
