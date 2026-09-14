@@ -1,9 +1,6 @@
 name: Release PDF
 
 on:
-  pull_request:
-    branches:
-      - main
   release:
     types: [published]
 
@@ -26,26 +23,7 @@ jobs:
         run: npm install puppeteer
 
       - name: Generate presentation PDF
-        run: |
-          node --input-type=module <<'EOF'
-          import puppeteer from 'puppeteer'
-          import {pathToFileURL} from 'node:url'
-          import path from 'node:path'
-
-          const args = process.env.CI ? ['--no-sandbox'] : undefined
-          const browser = await puppeteer.launch({args})
-          const page = await browser.newPage()
-          const indexPath = path.resolve('index.html')
-          const url = pathToFileURL(indexPath).href
-          await page.goto(`${url}?print-pdf`, {waitUntil: 'networkidle0'})
-          await page.pdf({
-            path: 'swxsoc-presentation.pdf',
-            printBackground: true,
-            preferCSSPageSize: true,
-            waitForFonts: true,
-          })
-          await browser.close()
-          EOF
+        run: node scripts/build-pdf.mjs
 
       - name: Test generated PDF
         run: test -s swxsoc-presentation.pdf
