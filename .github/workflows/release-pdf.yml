@@ -30,6 +30,9 @@ jobs:
       - name: Install Puppeteer
         run: npm install puppeteer@24.10.2
 
+      - name: Install Chrome for Puppeteer
+        run: npx puppeteer browsers install chrome
+
       - name: Generate presentation PDF
         run: node scripts/build-pdf.mjs
 
